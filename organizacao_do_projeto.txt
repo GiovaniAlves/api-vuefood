@@ -1,0 +1,7 @@
+Routes/api.php      // As rotas da api ficarão dentro do api.php.
+
+Controllers         // Responsável por delegar as ações.
+    Form Request        // Responsável por fazer as validações dos formulários.
+    Resources           // Responsável por devolver os dados.
+    Service Layers      // Responsável por toda a lógica da api.
+    Repositories        // Responsável por lidar com as queries da api.
