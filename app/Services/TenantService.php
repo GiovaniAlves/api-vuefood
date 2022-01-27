@@ -10,9 +10,7 @@ use App\Repositories\Contracts\TenantRepositoryInterface;
 class TenantService
 {
 
-    /**
-     * @var TenantRepositoryInterface
-     */
+    /*** @var TenantRepositoryInterface */
     private $tenantRepository;
 
     /**

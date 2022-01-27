@@ -5,14 +5,9 @@ namespace App\Repositories;
 use App\Models\Tenant;
 use App\Repositories\Contracts\TenantRepositoryInterface;
 
-/**
- *
- */
 class TenantRepository implements TenantRepositoryInterface
 {
-    /**
-     * @var Tenant
-     */
+    /*** @var Tenant */
     protected $entity;
 
     /**
