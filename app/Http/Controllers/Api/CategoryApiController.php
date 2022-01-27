@@ -8,9 +8,6 @@ use App\Http\Resources\CategoryResource;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
-/**
- *
- */
 class CategoryApiController extends Controller
 {
     /*** @var CategoryService */
@@ -33,5 +30,17 @@ class CategoryApiController extends Controller
         $categories = $this->categoryService->getCategoriesByUuid($request->token_company);
 
         return CategoryResource::collection($categories);
+    }
+
+    /**
+     * @param CategoriesByTenantFormRequest $request
+     * @param $url
+     * @return CategoryResource
+     */
+    public function show(CategoriesByTenantFormRequest $request, $url)
+    {
+        $category = $this->categoryService->getCategoryByUrl($url);
+
+        return new CategoryResource($category);
     }
 }

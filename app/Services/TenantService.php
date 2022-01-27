@@ -4,9 +4,6 @@ namespace App\Services;
 
 use App\Repositories\Contracts\TenantRepositoryInterface;
 
-/**
- *
- */
 class TenantService
 {
 

@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/tenants', [TenantApiController::class, 'index']);
 Route::get('/tenant/{uuid}', [TenantApiController::class, 'show']);
 Route::get('/categories', [CategoryApiController::class, 'categoriesByTenant']);
+Route::get('/categories/{url}', [CategoryApiController::class, 'show']);

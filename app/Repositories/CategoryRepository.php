@@ -5,9 +5,6 @@ namespace App\Repositories;
 use App\Models\Category;
 use App\Repositories\Contracts\CategoryRepositoryInterface;
 
-/**
- *
- */
 class CategoryRepository implements CategoryRepositoryInterface
 {
     /*** @var Category */
@@ -41,5 +38,14 @@ class CategoryRepository implements CategoryRepositoryInterface
     public function getCategoriesByTenantId(int $tenantId)
     {
         return $this->entity->where('tenant_id', $tenantId)->get();
+    }
+
+    /**
+     * @param string $url
+     * @return mixed
+     */
+    public function getCategoryByUrl(string $url)
+    {
+        return $this->entity->where('url', $url)->firstOrFail();
     }
 }

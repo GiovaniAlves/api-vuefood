@@ -5,9 +5,6 @@ namespace App\Services;
 use App\Repositories\Contracts\CategoryRepositoryInterface;
 use App\Repositories\Contracts\TenantRepositoryInterface;
 
-/**
- *
- */
 class CategoryService
 {
     /*** @var CategoryRepositoryInterface */
@@ -35,5 +32,14 @@ class CategoryService
         $tenant = $this->tenantRepository->getTenantByUuid($uuid);
 
         return $this->categoryRepository->getCategoriesByTenantId($tenant->id);
+    }
+
+    /**
+     * @param string $url
+     * @return mixed
+     */
+    public function getCategoryByUrl(string $url)
+    {
+        return $this->categoryRepository->getCategoryByUrl($url);
     }
 }
