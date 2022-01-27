@@ -6,9 +6,6 @@ namespace App\Services;
 use App\Repositories\Contracts\TableRepositoryInterface;
 use App\Repositories\Contracts\TenantRepositoryInterface;
 
-/**
- *
- */
 class TableService
 {
     /*** @var TableRepositoryInterface */

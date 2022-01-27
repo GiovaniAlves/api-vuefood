@@ -27,7 +27,7 @@ class CategoryApiController extends Controller
      */
     public function categoriesByTenant(EntityByTenantFormRequest $request)
     {
-        $categories = $this->categoryService->getCategoriesByUuid($request->token_company);
+        $categories = $this->categoryService->getCategoriesByTenantUuid($request->token_company);
 
         return CategoryResource::collection($categories);
     }

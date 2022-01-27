@@ -27,7 +27,7 @@ class CategoryService
      * @param string $uuid
      * @return mixed
      */
-    public function getCategoriesByUuid(string $uuid)
+    public function getCategoriesByTenantUuid(string $uuid)
     {
         $tenant = $this->tenantRepository->getTenantByUuid($uuid);
 
