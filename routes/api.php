@@ -1,9 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\{
-    TenantApiController,
-    CategoryApiController
-};
+use App\Http\Controllers\Api\{TableApiController, TenantApiController, CategoryApiController};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,5 +12,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/tenants', [TenantApiController::class, 'index']);
 Route::get('/tenant/{uuid}', [TenantApiController::class, 'show']);
+
 Route::get('/categories', [CategoryApiController::class, 'categoriesByTenant']);
 Route::get('/categories/{url}', [CategoryApiController::class, 'show']);
+
+Route::get('/tables', [TableApiController::class, 'tablesByTenant']);
+Route::get('/tables/{identify}', [TableApiController::class, 'show']);

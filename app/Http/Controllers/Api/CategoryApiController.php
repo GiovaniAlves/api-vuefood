@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\CategoriesByTenantFormRequest;
+use App\Http\Requests\Api\EntityByTenantFormRequest;
 use App\Http\Resources\CategoryResource;
 use App\Services\CategoryService;
 use Illuminate\Http\Request;
@@ -22,10 +22,10 @@ class CategoryApiController extends Controller
     }
 
     /**
-     * @param CategoriesByTenantFormRequest $request
+     * @param EntityByTenantFormRequest $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function categoriesByTenant(CategoriesByTenantFormRequest $request)
+    public function categoriesByTenant(EntityByTenantFormRequest $request)
     {
         $categories = $this->categoryService->getCategoriesByUuid($request->token_company);
 
@@ -33,11 +33,11 @@ class CategoryApiController extends Controller
     }
 
     /**
-     * @param CategoriesByTenantFormRequest $request
+     * @param EntityByTenantFormRequest $request
      * @param $url
      * @return CategoryResource
      */
-    public function show(CategoriesByTenantFormRequest $request, $url)
+    public function show(EntityByTenantFormRequest $request, $url)
     {
         $category = $this->categoryService->getCategoryByUrl($url);
 
