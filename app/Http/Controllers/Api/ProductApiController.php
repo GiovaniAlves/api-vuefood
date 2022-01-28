@@ -28,13 +28,18 @@ class ProductApiController extends Controller
     {
         $products = $this->productService->getProductsByTenantUuidAndCategories(
             $request->token_company,
-            // Se nenhuma categoria for passada recebo um array vazio
+            // Se nenhuma categoria for passada recebo um array vazio e devolvo todas as categorias
             $request->get('categories', [])
         );
 
         return ProductResource::collection($products);
     }
 
+    /**
+     * @param EntityByTenantFormRequest $request
+     * @param string $flag
+     * @return ProductResource
+     */
     public function show(EntityByTenantFormRequest $request, string $flag)
     {
         $product = $this->productService->getProductByFlag($flag);
