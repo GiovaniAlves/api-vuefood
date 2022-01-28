@@ -24,10 +24,21 @@ class ProductApiController extends Controller
      * @param EntityByTenantFormRequest $request
      * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
-    public function productsByTenant(EntityByTenantFormRequest $request)
+    public function productsByTenantAndCategories(EntityByTenantFormRequest $request)
     {
-        $products = $this->productService->getProductsByTenantUuid($request->token_company);
+        $products = $this->productService->getProductsByTenantUuidAndCategories(
+            $request->token_company,
+            // Se nenhuma categoria for passada recebo um array vazio
+            $request->get('categories', [])
+        );
 
         return ProductResource::collection($products);
+    }
+
+    public function show(EntityByTenantFormRequest $request, string $flag)
+    {
+        $product = $this->productService->getProductByFlag($flag);
+
+        return new ProductResource($product);
     }
 }
