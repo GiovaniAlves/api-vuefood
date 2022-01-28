@@ -1,6 +1,10 @@
 <?php
 
-use App\Http\Controllers\Api\{ProductApiController, TableApiController, TenantApiController, CategoryApiController};
+use App\Http\Controllers\Api\{Auth\RegisterController,
+    ProductApiController,
+    TableApiController,
+    TenantApiController,
+    CategoryApiController};
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -12,6 +16,8 @@ Route::group([
     'prefix' => 'v1',
     'namespace' => 'Api'
 ], function () {
+    Route::post('/client', [RegisterController::class, 'store']);
+
     Route::get('/tenants', [TenantApiController::class, 'index']);
     Route::get('/tenant/{uuid}', [TenantApiController::class, 'show']);
 
