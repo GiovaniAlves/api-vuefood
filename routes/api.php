@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\Api\{Auth\RegisterController,
+use App\Http\Controllers\Api\{Auth\AuthController,
+    Auth\RegisterController,
     ProductApiController,
     TableApiController,
     TenantApiController,
@@ -12,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 */
+Route::post('/sanctum/token', [AuthController::class, 'auth']);
+
+Route::group([
+    'middleware' => ['auth:sanctum']
+], function () {
+    Route::post('/auth/me', [AuthController::class, 'me']);
+});
+
 Route::group([
     'prefix' => 'v1',
     'namespace' => 'Api'
