@@ -34,8 +34,23 @@ class AuthController extends Controller
      */
     public function me(Request $request)
     {
+        // Retorna o user autenticado
         $client = $request->user();
 
         return new ClientResource($client);
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout(Request $request)
+    {
+        $client = $request->user();
+
+        // Revoke all tokens client...
+        $client->tokens()->delete();
+
+        return response()->json([], 204);
     }
 }

@@ -18,7 +18,8 @@ Route::post('/sanctum/token', [AuthController::class, 'auth']);
 Route::group([
     'middleware' => ['auth:sanctum']
 ], function () {
-    Route::post('/auth/me', [AuthController::class, 'me']);
+    Route::get('/auth/me', [AuthController::class, 'me']);
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
 });
 
 Route::group([
