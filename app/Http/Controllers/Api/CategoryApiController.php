@@ -34,12 +34,12 @@ class CategoryApiController extends Controller
 
     /**
      * @param EntityByTenantFormRequest $request
-     * @param $url
+     * @param $identify
      * @return CategoryResource
      */
-    public function show(EntityByTenantFormRequest $request, $url)
+    public function show(EntityByTenantFormRequest $request, $identify)
     {
-        $category = $this->categoryService->getCategoryByUrl($url);
+        $category = $this->categoryService->getCategoryByUuid($identify);
 
         return new CategoryResource($category);
     }

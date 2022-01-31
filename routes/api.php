@@ -7,12 +7,7 @@ use App\Http\Controllers\Api\{Auth\AuthController,
     TenantApiController,
     CategoryApiController};
 use Illuminate\Support\Facades\Route;
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-*/
+
 Route::post('/sanctum/token', [AuthController::class, 'auth']);
 
 Route::group([
@@ -32,11 +27,11 @@ Route::group([
     Route::get('/tenant/{uuid}', [TenantApiController::class, 'show']);
 
     Route::get('/categories', [CategoryApiController::class, 'categoriesByTenant']);
-    Route::get('/category/{url}', [CategoryApiController::class, 'show']);
+    Route::get('/category/{identify}', [CategoryApiController::class, 'show']);
 
     Route::get('/tables', [TableApiController::class, 'tablesByTenant']);
     Route::get('/table/{identify}', [TableApiController::class, 'show']);
 
     Route::get('/products', [ProductApiController::class, 'productsByTenantAndCategories']);
-    Route::get('/product/{flag}', [ProductApiController::class, 'show']);
+    Route::get('/product/{identify}', [ProductApiController::class, 'show']);
 });

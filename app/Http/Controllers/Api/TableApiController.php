@@ -39,7 +39,7 @@ class TableApiController extends Controller
      */
     public function show(EntityByTenantFormRequest $request, $identify)
     {
-        $table = $this->tableService->getTableyByIdentify($identify);
+        $table = $this->tableService->getTableByUuid($identify);
 
         return new TableResource($table);
     }

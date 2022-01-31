@@ -38,11 +38,11 @@ class TableService
 
 
     /**
-     * @param string $identify
+     * @param string $uuid
      * @return mixed
      */
-    public function getTableyByIdentify(string $identify)
+    public function getTableByUuid(string $uuid)
     {
-        return $this->tableRepository->getTableByIdentify($identify);
+        return $this->tableRepository->getTableByUuid($uuid);
     }
 }

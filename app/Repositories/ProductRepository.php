@@ -36,15 +36,16 @@ class ProductRepository implements ProductRepositoryInterface
                     $query->whereIn('categories.url', $categories);
                 }
             })
+            ->select('products.*')
             ->get();
     }
 
     /**
-     * @param string $flag
+     * @param string $uuid
      * @return mixed
      */
-    public function getProductByFlag(string $flag)
+    public function getProductByUuid(string $uuid)
     {
-        return $this->entity->where('flag', $flag)->firstOrFail();
+        return $this->entity->where('uuid', $uuid)->firstOrFail();
     }
 }

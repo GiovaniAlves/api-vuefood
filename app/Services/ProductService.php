@@ -4,7 +4,6 @@ namespace App\Services;
 
 
 use App\Repositories\Contracts\ProductRepositoryInterface;
-use App\Repositories\Contracts\TableRepositoryInterface;
 use App\Repositories\Contracts\TenantRepositoryInterface;
 
 /**
@@ -42,11 +41,11 @@ class ProductService
     }
 
     /**
-     * @param string $flag
+     * @param string $uuid
      * @return mixed
      */
-    public function getProductByFlag(string $flag)
+    public function getProductByUuid(string $uuid)
     {
-        return $this->productRepository->getProductByFlag($flag);
+        return $this->productRepository->getProductByUuid($uuid);
     }
 }

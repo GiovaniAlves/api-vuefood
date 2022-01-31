@@ -37,12 +37,12 @@ class ProductApiController extends Controller
 
     /**
      * @param EntityByTenantFormRequest $request
-     * @param string $flag
+     * @param string $identify
      * @return ProductResource
      */
-    public function show(EntityByTenantFormRequest $request, string $flag)
+    public function show(EntityByTenantFormRequest $request, string $identify)
     {
-        $product = $this->productService->getProductByFlag($flag);
+        $product = $this->productService->getProductByUuid($identify);
 
         return new ProductResource($product);
     }

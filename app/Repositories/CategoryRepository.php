@@ -41,11 +41,11 @@ class CategoryRepository implements CategoryRepositoryInterface
     }
 
     /**
-     * @param string $url
+     * @param string $uuid
      * @return mixed
      */
-    public function getCategoryByUrl(string $url)
+    public function getCategoryByUuid(string $uuid)
     {
-        return $this->entity->where('url', $url)->firstOrFail();
+        return $this->entity->where('uuid', $uuid)->firstOrFail();
     }
 }

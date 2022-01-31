@@ -29,11 +29,11 @@ class TableRepository implements TableRepositoryInterface
     }
 
     /**
-     * @param string $identify
+     * @param string $uuid
      * @return mixed
      */
-    public function getTableByIdentify(string $identify)
+    public function getTableByUuid(string $uuid)
     {
-        return $this->entity->where('identify', $identify)->firstOrFail();
+        return $this->entity->where('uuid', $uuid)->firstOrFail();
     }
 }
