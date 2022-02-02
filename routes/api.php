@@ -19,6 +19,7 @@ Route::group([
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 
     Route::post(env('API_VERSION').'/auth/order', [OrderApiController::class, 'store']);
+    Route::get(env('API_VERSION').'/auth/order/{identify}', [OrderApiController::class, 'show']);
 
     Route::post(env('API_VERSION').'/auth/order/{identifyOrder}/evaluation', [EvaluationApiController::class, 'store']);
 });

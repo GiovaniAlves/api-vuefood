@@ -34,8 +34,4 @@ class EvaluationApiController extends Controller
         return new EvaluationResource($evaluation);
     }
 
-    public function show()
-    {
-
-    }
 }
