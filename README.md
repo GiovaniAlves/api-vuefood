@@ -7,8 +7,8 @@ Foi desenvolvido durante o curso de Laravel (LaraFood) da EspecializaTi essa API
 
 ### Organização do Projeto
 
-- Controllers: Responsável por delegar as ações.
+- Controller: Responsável por delegar as ações.
 - Form Request: Responsável por fazer as validações dos formulários.
-- Resources: Responsável por devolver os dados.
+- Resource: Responsável por devolver os dados.
 - Service Layer: Responsável por toda a lógica da api.
-- Repositories: Responsável por lidar com as queries da api.
+- Repository: Responsável por lidar com as queries da api.
