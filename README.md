@@ -12,4 +12,3 @@ Foi desenvolvido durante o curso de Laravel (LaraFood) da EspecializaTi essa API
 - Resources: Responsável por devolver os dados.
 - Service Layer: Responsável por toda a lógica da api.
 - Repositories: Responsável por lidar com as queries da api.
-- Controllers: Responsável por delegar as ações.
