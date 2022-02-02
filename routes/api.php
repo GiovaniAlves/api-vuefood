@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\{Auth\AuthController,
     Auth\RegisterController,
+    EvaluationApiController,
     OrderApiController,
     ProductApiController,
     TableApiController,
@@ -18,11 +19,12 @@ Route::group([
     Route::post('/auth/logout', [AuthController::class, 'logout']);
 
     Route::post(env('API_VERSION').'/auth/order', [OrderApiController::class, 'store']);
+
+    Route::post(env('API_VERSION').'/auth/order/{identifyOrder}/evaluation', [EvaluationApiController::class, 'store']);
 });
 
 Route::group([
-    'prefix' => env('API_VERSION'),
-    'namespace' => 'Api'
+    'prefix' => env('API_VERSION')
 ], function () {
     Route::post('/client', [RegisterController::class, 'store']);
 

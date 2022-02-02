@@ -9,7 +9,7 @@ class Evaluation extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['stars', 'comment'];
+    protected $fillable = ['order_id', 'client_id', 'stars', 'comment'];
 
     public function order()
     {
