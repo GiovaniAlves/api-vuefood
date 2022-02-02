@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\{Auth\AuthController,
     Auth\RegisterController,
+    OrderApiController,
     ProductApiController,
     TableApiController,
     TenantApiController,
@@ -15,10 +16,12 @@ Route::group([
 ], function () {
     Route::get('/auth/me', [AuthController::class, 'me']);
     Route::post('/auth/logout', [AuthController::class, 'logout']);
+
+    Route::post(env('API_VERSION').'/auth/order', [OrderApiController::class, 'store']);
 });
 
 Route::group([
-    'prefix' => 'v1',
+    'prefix' => env('API_VERSION'),
     'namespace' => 'Api'
 ], function () {
     Route::post('/client', [RegisterController::class, 'store']);
@@ -34,4 +37,7 @@ Route::group([
 
     Route::get('/products', [ProductApiController::class, 'productsByTenantAndCategories']);
     Route::get('/product/{identify}', [ProductApiController::class, 'show']);
+
+    Route::post('/order', [OrderApiController::class, 'store']);
+    Route::get('/order/{identify}', [OrderApiController::class, 'show']);
 });

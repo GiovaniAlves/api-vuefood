@@ -13,7 +13,7 @@ class TableObserver
      * @param  \App\Models\Table  $table
      * @return void
      */
-    public function created(Table $table)
+    public function creating(Table $table)
     {
         $table->uuid = Str::uuid();
     }

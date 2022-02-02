@@ -13,7 +13,7 @@ class ProductObserver
      * @param  \App\Models\Product  $product
      * @return void
      */
-    public function created(Product $product)
+    public function creating(Product $product)
     {
         $product->uuid = Str::uuid();
     }

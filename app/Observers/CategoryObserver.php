@@ -13,7 +13,7 @@ class CategoryObserver
      * @param  \App\Models\Category  $category
      * @return void
      */
-    public function created(Category $category)
+    public function creating(Category $category)
     {
         $category->uuid = Str::uuid();
     }
